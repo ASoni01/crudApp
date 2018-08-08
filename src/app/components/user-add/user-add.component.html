@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		Add 
+	</div>
+	<div class="panel-body">
+		<form #userForm="ngForm" (submit)="addUser(userForm)">
+			<div class="form-group row" >
+				<label for="name" class="col-sm-2">Name:</label>
+				<div class="col-sm-10">
+					<input type="text" #userName="ngModel" [class.is-invalid]="userName.invalid && userName.touched" class="form-control" name="name" [(ngModel)]="name" required /><span class="text-danger" [class.d-none]="userName.valid || userName.untouched">Name is required</span>
+				</div>
+				
+							
+			</div>
+			<div class="form-group row">
+				<label for="email" class="col-sm-2">Email:</label>
+				<div class="col-sm-10">
+					<input type="email" #userEmail="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" [class.is-invalid]="userEmail.invalid && userEmail.touched" class="form-control" name="email" [(ngModel)]="email" required /><span class="text-danger" [class.d-none]="userEmail.valid || userEmail.untouched">Enter a valid email address</span>
+				</div>
+				
+			</div>
+			<div class="form-group row">
+				<label for="phone" class="col-sm-2">Phone:</label>
+				<div class="col-sm-10">
+					<input type="text" #userPhone="ngModel" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" [class.is-invalid]="userPhone.invalid && userPhone.touched" class="form-control" name="phone" [(ngModel)]="phone" required/>
+					 <div *ngIf="userPhone.errors && (userPhone.invalid && userPhone.touched)">
+                              				 <span class="text-danger" *ngIf="userPhone.errors.required">Phone is required</span>
+                               				 <span class="text-danger" *ngIf="userPhone.errors.pattern">Enter a valid phone number</span>
+                          			</div>
+				</div>
+				
+			</div>
+			<div class="col-sm-10 pl">
+				<input type="submit" value="Add Task" class="btn btn-primary">
+			</div>
+			
+		</form>
+	</div>
+</div>
+

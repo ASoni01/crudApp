@@ -1,0 +1,22 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		Add 
+	</div>
+	<div class="panel-body">
+		<form (submit)="saveUser()">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-group" name="name" [(ngModel)]="editTask.name">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" class="form-group" name="email" [(ngModel)]="editTask.email">
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone:</label>
+				<input type="text" class="form-group" name="phone" [(ngModel)]="editTask.phone">
+			</div>
+			<input type="submit" value="Edit Task" class="btn btn-primary">
+		</form>
+	</div>
+</div>

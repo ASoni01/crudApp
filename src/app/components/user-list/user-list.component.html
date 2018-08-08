@@ -1,0 +1,6 @@
+<app-user-add (taskAdded)="addUser($event)"></app-user-add>
+
+
+<div class="container">
+	<app-user *ngFor="let user of users" [user]="user"></app-user><br>
+</div>
